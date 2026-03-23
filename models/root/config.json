@@ -1,0 +1,21 @@
+{
+    "inputFeatures": 784,
+    "layers": [
+        {
+            "activationName": "relu",
+            "outputSize": 128
+        },
+        {
+            "activationName": "relu",
+            "outputSize": 64
+        },
+        {
+            "activationName": "softmax",
+            "outputSize": 10
+        }
+    ],
+    "learningRate": 0.01,
+    "lossFunctionName": "cross_entropy",
+    "multiplicationModeName": "CPU_THREADS",
+    "outputClasses": 10
+}
