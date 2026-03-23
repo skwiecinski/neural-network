@@ -3,46 +3,49 @@
 A high-performance Multi-Layer Perceptron (MLP) implementation built from scratch in C++20, featuring NVIDIA CUDA acceleration for the MNIST handwritten digit dataset.
 
 ## Description
-This project is a full-scale neural network designed to recognize handwritten digits. It focuses on fundamental machine learning algorithms and performance optimization through hardware acceleration on both CPU and GPU.
+This project is a full-scale neural network designed to recognize handwritten digits. It focuses on fundamental machine learning algorithms and performance optimization through hardware acceleration on both CPU and GPU. The system includes a custom math engine, interactive drawing mode, and a multi-user management system.
 
-### Key Features
-* Heterogeneous Computing: Supports matrix operations on both CPU (via std::thread and std::async) and GPU (via NVIDIA CUDA and cuBLAS).
-* Custom Matrix Engine: A dedicated Matrix class manages linear algebra operations with data stored in row-major order.
-* Modular Architecture: Support for multiple activation functions (ReLU, Sigmoid, Softmax, Tanh, Leaky ReLU) and loss functions (MSE, Cross-Entropy).
-* Interactive SFML Mode: A graphical interface allowing users to draw digits and receive real-time predictions.
-* Persistence & Security: Model serialization to JSON for configuration and CSV for weights, featuring atomic saving via .tmp files.
-* User Management: A system for registration and login with masked password input to manage personalized model directories.
+## Technical Implementation & Best Practices
+* Modern C++20 Standards: Leverages the latest features including Concepts for template constraints (FloatingPoint), std::filesystem for robust I/O, and std::async for parallel CPU processing.
+* Clean Code & Architecture: Adheres to clean code principles with a strictly modular, object-oriented design. Each class (Matrix, Layer, NeuralNetwork) has a single, clear responsibility.
+* Memory Safety: High-level memory management using RAII and smart pointers (std::unique_ptr), ensuring zero memory leaks and robust resource handling.
+* Heterogeneous Computing: Optimized kernels for NVIDIA GPUs using CUDA and cuBLAS, with a fallback to multi-threaded CPU execution.
 
-### Technical Implementation & Best Practices
-
-* Modern C++20 Standards: This project leverages the latest C++20 features, including Concepts for template constraints (e.g., FloatingPoint), and modern standard library components like std::filesystem, std::optional, and std::async for efficient, readable code.
-* Clean Code & Architecture: The codebase adheres to clean code principles through a strictly modular, object-oriented design where each class has a clearly defined responsibility.
-* Memory Safety & RAII: Memory management is strictly handled via RAII principles using smart pointers (std::unique_ptr), ensuring a robust and leak-free implementatio.
-* Robust Engineering: Implementation includes atomic model saving mechanisms to ensure data integrity and a clear separation of declarations from definitions to maintain One Definition Rule (ODR) compliance.
+## Key Features
+* Custom Matrix Engine: Dedicated Matrix<T> class managing linear algebra operations in row-major order.
+* Modular Architecture: Support for various activation functions (ReLU, Sigmoid, Softmax, Tanh, Leaky ReLU) and loss functions (MSE, Cross-Entropy).
+* Interactive SFML Mode: Real-time digit recognition through a graphical drawing interface.
+* Persistence: Atomic model saving (using .tmp files) to prevent data corruption, with configuration stored in JSON and weights in CSV.
+* User System: Secure registration/login system with masked password input.
 
 ## Getting Started
 
 ### Dependencies
-* C++20 Compiler: Required for features like Concepts (FloatingPoint) and std::filesystem.
-* SFML 3.0: Used for the interactive drawing window and event handling.
-* NVIDIA CUDA Toolkit & cuBLAS: Essential for high-performance matrix multiplication on the GPU.
-* nlohmann/json: Used for serializing and deserializing network configurations.
-* Gnuplot: Required to generate training history charts for loss and accuracy.
+* C++20 Compatible Compiler (GCC 11+, Clang 13+, or MSVC 19.29+).
+* SFML 3.0 (Simple and Fast Multimedia Library).
+* NVIDIA CUDA Toolkit & cuBLAS.
+* nlohmann/json (included via headers).
+* Gnuplot (optional, for training history visualization).
 
+### Building the Project
+Windows:
+*  It is highly recommended to use the "Developer Command Prompt for VS 2022" to ensure cl.exe is in your PATH for the CUDA compiler (nvcc).
+*  Set your SFML_PATH and CUDA_PATH in the Makefile or provide them during build:
+```bash
+make SFML_PATH="C:/SFML-3.0"
+```
+Linux:
+*  Ensure SFML 3.0 and CUDA are installed in standard paths (/usr/local).
+*  Run: 
+```bash
+make
+```
 ### Installing
-* Clone the repository:
+*  Clone the repository:
 ```bash
 git clone [https://github.com/skwiecinski/neural-network.git](https://github.com/skwiecinski/neural-network.git)
 ```
-* Environment Setup: Ensure SFML 3.0 and CUDA Toolkit are correctly configured in your system PATH.
-*  Data: Place the MNIST dataset files in the data/MNIST/ directory as defined in the global settings.
-
-### Executing Program
-The application is managed through a centralized console control panel:
-*  Authentication: Login or register to access your personal model directory.
-*  Configuration: Initialize a new network and select the computation mode (CPU or CUDA).
-*  Training: Run the training loop to train the network on the MNIST dataset.
-*  Drawing Mode: Use the SFML interface to draw digits and test accuracy in real-time.
+*  Data: Place the MNIST dataset files in the 'data/MNIST/' directory.
 
 ## Authors
 Szymon Kwieciński
@@ -52,6 +55,6 @@ Szymon Kwieciński
 This project is licensed under the MIT License.
 
 ## Acknowledgments
-* MNIST Database: For providing the standard handwritten digit dataset.
-* SFML Team: For the Simple and Fast Multimedia Library.
+* MNIST Database: For the handwritten digit dataset.
+* SFML Team: For the multimedia library.
 * nlohmann: For the JSON for Modern C++ library.
