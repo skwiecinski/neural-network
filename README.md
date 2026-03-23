@@ -13,6 +13,13 @@ This project is a full-scale neural network designed to recognize handwritten di
 * Persistence & Security: Model serialization to JSON for configuration and CSV for weights, featuring atomic saving via .tmp files.
 * User Management: A system for registration and login with masked password input to manage personalized model directories.
 
+### Technical Implementation & Best Practices
+
+* Modern C++20 Standards: This project leverages the latest C++20 features, including Concepts for template constraints (e.g., FloatingPoint), and modern standard library components like std::filesystem, std::optional, and std::async for efficient, readable code.
+* Clean Code & Architecture: The codebase adheres to clean code principles through a strictly modular, object-oriented design where each class has a clearly defined responsibility.
+* Memory Safety & RAII: Memory management is strictly handled via RAII principles using smart pointers (std::unique_ptr), ensuring a robust and leak-free implementatio.
+* Robust Engineering: Implementation includes atomic model saving mechanisms to ensure data integrity and a clear separation of declarations from definitions to maintain One Definition Rule (ODR) compliance.
+
 ## Getting Started
 
 ### Dependencies
