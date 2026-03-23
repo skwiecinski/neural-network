@@ -43,7 +43,7 @@ make
 ### Installing
 *  Clone the repository:
 ```bash
-git clone [https://github.com/skwiecinski/neural-network.git](https://github.com/skwiecinski/neural-network.git)
+git clone https://github.com/skwiecinski/neural-network.git
 ```
 *  Data: Place the MNIST dataset files in the 'data/MNIST/' directory.
 
