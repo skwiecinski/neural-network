@@ -6,17 +6,17 @@ A high-performance Multi-Layer Perceptron (MLP) implementation built from scratc
 This project is a full-scale neural network designed to recognize handwritten digits. It focuses on fundamental machine learning algorithms and performance optimization through hardware acceleration on both CPU and GPU. The system includes a custom math engine, interactive drawing mode, and a multi-user management system.
 
 ## Technical Implementation & Best Practices
-* Modern C++20 Standards: Leverages the latest features including Concepts for template constraints (FloatingPoint), std::filesystem for robust I/O, and std::async for parallel CPU processing.
-* Clean Code & Architecture: Adheres to clean code principles with a strictly modular, object-oriented design. Each class (Matrix, Layer, NeuralNetwork) has a single, clear responsibility.
-* Memory Safety: High-level memory management using RAII and smart pointers (std::unique_ptr), ensuring zero memory leaks and robust resource handling.
-* Heterogeneous Computing: Optimized kernels for NVIDIA GPUs using CUDA and cuBLAS, with a fallback to multi-threaded CPU execution.
+* **Modern C++20 Standards:** Leverages the latest features including Concepts for template constraints (FloatingPoint), std::filesystem for robust I/O, and std::async for parallel CPU processing.
+* **Clean Code & Architecture:** Adheres to clean code principles with a strictly modular, object-oriented design. Each class (Matrix, Layer, NeuralNetwork) has a single, clear responsibility.
+* **Memory Safety:** High-level memory management using RAII and smart pointers (std::unique_ptr), ensuring zero memory leaks and robust resource handling.
+* **Heterogeneous Computing:** Optimized kernels for NVIDIA GPUs using CUDA and cuBLAS, with a fallback to multi-threaded CPU execution.
 
 ## Key Features
-* Custom Matrix Engine: Dedicated Matrix<T> class managing linear algebra operations in row-major order.
-* Modular Architecture: Support for various activation functions (ReLU, Sigmoid, Softmax, Tanh, Leaky ReLU) and loss functions (MSE, Cross-Entropy).
-* Interactive SFML Mode: Real-time digit recognition through a graphical drawing interface.
-* Persistence: Atomic model saving (using .tmp files) to prevent data corruption, with configuration stored in JSON and weights in CSV.
-* User System: Secure registration/login system with masked password input.
+* **Custom Matrix Engine:** Dedicated Matrix<T> class managing linear algebra operations in row-major order.
+* **Modular Architecture:** Support for various activation functions (ReLU, Sigmoid, Softmax, Tanh, Leaky ReLU) and loss functions (MSE, Cross-Entropy).
+* **Interactive SFML Mode:** Real-time digit recognition through a graphical drawing interface.
+* **Persistence:** Atomic model saving (using .tmp files) to prevent data corruption, with configuration stored in JSON and weights in CSV.
+* **User System:** Secure registration/login system with masked password input.
 
 ## Getting Started
 
