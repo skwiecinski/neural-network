@@ -179,7 +179,7 @@ void launchElementWiseKernel(const double* h_A, const double* h_B, double* h_C, 
         CUDA_CHECK(cudaMalloc((void**)&d_C, size));
 
         CUDA_CHECK(cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice));
-        if (h_B) { // h_B mo�e by� nullptr dla operacji jednoargumentowych (jak mno�enie przez skalar, je�li refaktoryzowa�)
+        if (h_B) { 
             CUDA_CHECK(cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice));
         }
 
